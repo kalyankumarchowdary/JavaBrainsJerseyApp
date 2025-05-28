@@ -53,4 +53,12 @@ public class MessageResource {
         return messageService.addMessage(message);
     }
 
+    @PUT
+    @Path("/{messageId}") // Path parameter to update a specific message by ID (example: /messages/1 , /messages/2)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Message updateMessage(@PathParam("messageId") long id, Message message) {
+        return messageService.updateMessage(id, message);
+    }
+
 }

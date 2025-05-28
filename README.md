@@ -13,6 +13,7 @@ URLS
 4. GET /messenger/webapi/messages/ 
 5. GET /messenger/webapi/messages/{messageId} (messageId is a path parameter, e.g., 1,2)
 6. POST /messenger/webapi/messages/ (message is a JSON object in the request body)
+7. PUT /messenger/webapi/messages/{messageId} (messageId is a path parameter, e.g., 1,2) (message is a JSON object in the request body)
 
 TOMCAT SETUP
 

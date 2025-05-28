@@ -1,6 +1,7 @@
 package org.example.services;
 
 import org.example.database.stubs.DatabaseStubs;
+import org.example.exeptions.MessageNotFoundException;
 import org.example.models.Message;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,17 @@ public class MessageService {
         message.setId(newId);// Setting the new ID to the message
         messages.put(newId, message);// Adding the new message to the map
         return message;
+    }
+
+    public Message updateMessage(long id, Message message) {
+        // This method updates an existing message by its ID.
+        if (messages.containsKey(id)) {
+            message.setId(id); // Ensure the ID remains the same
+            messages.put(id, message);
+            return message;
+        }
+        throw new MessageNotFoundException("Message with ID " + id + " not found.");
+
     }
 
 }
