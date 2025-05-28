@@ -2,6 +2,7 @@ package org.example.resources;
 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import org.example.exeptions.MessageNotFoundException;
 import org.example.models.Message;
 import org.example.services.MessageService;
 
@@ -59,6 +60,21 @@ public class MessageResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Message updateMessage(@PathParam("messageId") long id, Message message) {
         return messageService.updateMessage(id, message);
+    }
+
+    @PATCH
+    @Path("/{messageId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Message patchMessage(@PathParam("messageId") long id, Message partialMessage) {
+        Message existingMessage = messageService.getMessageById(id); // Retrieve the existing message by ID
+        if (existingMessage == null) {
+            throw new MessageNotFoundException("Message with ID " + id + " not found.");
+        }
+        if (partialMessage.getMessage() != null) {
+            existingMessage.setMessage(partialMessage.getMessage());// Update the message content if provided in json body
+        }
+        return messageService.updateMessage(id, existingMessage);
     }
 
 }
