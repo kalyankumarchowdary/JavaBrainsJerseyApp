@@ -2,6 +2,7 @@ package org.example.resources;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import org.example.models.Message;
@@ -34,4 +35,12 @@ public class MessageResource {
     public List<Message> getJsonMessage() {
         return messageService.getAllMessages();
     }
+
+    @GET
+    @Path("/{messageId}") // Path parameter to get a specific message by ID (example: /messages/1 , /messages/2)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Message getMessageById(@PathParam("messageId") long id) {
+        return messageService.getMessageById(id);
+    }
+
 }

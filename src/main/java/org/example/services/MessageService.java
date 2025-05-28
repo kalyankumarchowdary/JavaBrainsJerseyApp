@@ -24,9 +24,11 @@ public class MessageService {
         // This method would typically interact with a DAO or repository to fetch messages.
         // For simplicity, we use a stubbed database.
         return new ArrayList<Message>(messages.values());
-
-
     }
 
+    public Message getMessageById(long id) {
+        // This method retrieves a specific message by its ID.
+        return messages.get(id);
+    }
 
 }
