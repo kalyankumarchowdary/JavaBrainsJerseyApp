@@ -7,9 +7,10 @@ MESSENGER APP
 URLS
 
 1.http://localhost:8081/messenger/ (base url)
-1. 2.GET /messenger/webapi/myresource 
+1. GET /messenger/webapi/myresource 
 2. GET /messenger/webapi/messages/text 
 3. GET /messenger/webapi/messages/json
+4. GET /messenger/webapi/messages/{messageId} (messageId is a path parameter, e.g., 1,2)
 
 TOMCAT SETUP
 
