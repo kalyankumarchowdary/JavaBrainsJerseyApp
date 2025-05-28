@@ -51,4 +51,17 @@ public class MessageService {
 
     }
 
+    public void deleteMessage(long id) {
+        // This method deletes a message by its ID.
+        if (messages.containsKey(id)) {
+            messages.remove(id); // Remove the message from the map
+        } else {
+            throw new MessageNotFoundException("Message with ID " + id + " not found.");
+        }
+    }
+
+    public void deleteAllMessages() {
+        // This method deletes all messages.
+        messages.clear(); // Clear the map to remove all messages
+    }
 }

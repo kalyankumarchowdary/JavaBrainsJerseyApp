@@ -77,4 +77,21 @@ public class MessageResource {
         return messageService.updateMessage(id, existingMessage);
     }
 
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    public void deleteAllMessages() {
+        messageService.deleteAllMessages(); // Remove all messages from the list
+    }
+
+    @DELETE
+    @Path("/{messageId}") // Path parameter to delete a specific message by ID (example: /messages/1 , /messages/2)
+    @Produces(MediaType.APPLICATION_JSON)
+    public void deleteMessage(@PathParam("messageId") long id) {
+        Message message = messageService.getMessageById(id);
+        if (message == null) {
+            throw new MessageNotFoundException("Message with ID " + id + " not found.");
+        }
+        messageService.deleteMessage(id); // Remove the message from the list
+    }
+
 }
