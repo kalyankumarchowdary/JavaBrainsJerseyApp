@@ -1,9 +1,6 @@
 package org.example.resources;
 
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import org.example.models.Message;
 import org.example.services.MessageService;
@@ -14,6 +11,12 @@ import java.util.List;
 public class MessageResource {
 
     MessageService messageService = new MessageService();
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Message> getAllMessages() {
+        return messageService.getAllMessages();
+    }
 
     @GET
     @Path("/text")
@@ -41,6 +44,13 @@ public class MessageResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Message getMessageById(@PathParam("messageId") long id) {
         return messageService.getMessageById(id);
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Message addMessage(Message message) {
+        return messageService.addMessage(message);
     }
 
 }

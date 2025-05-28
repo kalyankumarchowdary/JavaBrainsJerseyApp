@@ -31,4 +31,12 @@ public class MessageService {
         return messages.get(id);
     }
 
+    public Message addMessage(Message message) {
+        // This method adds a new message to the collection.
+        long newId = messages.size() + 1; // Simple ID generation logic (Incrementing  the size of the map by increasing id by 1)
+        message.setId(newId);// Setting the new ID to the message
+        messages.put(newId, message);// Adding the new message to the map
+        return message;
+    }
+
 }
