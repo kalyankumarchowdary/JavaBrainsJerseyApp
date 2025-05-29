@@ -4,6 +4,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import org.example.exeptions.MessageNotFoundException;
 import org.example.models.Message;
+import org.example.resources.beans.MessageFilterBeans;
 import org.example.services.MessageService;
 
 import java.util.List;
@@ -15,14 +16,12 @@ public class MessageResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Message> getAllMessages(@QueryParam("year") int year,
-                                        @QueryParam("start") int start,
-                                        @QueryParam("size") int size) {
-        if (year > 0) {
-            return messageService.getAllMessagesForYear(year);
+    public List<Message> getAllMessages(@BeanParam MessageFilterBeans messageFilterBeans) {
+        if (messageFilterBeans.getYear() > 0) {
+            return messageService.getAllMessagesForYear(messageFilterBeans.getYear());
         }
-        if (start >= 0 && size > 0) {
-            return messageService.getAllMessagesPaginated(start, size);
+        if (messageFilterBeans.getStart() >= 0 && messageFilterBeans.getSize() > 0) {
+            return messageService.getAllMessagesPaginated(messageFilterBeans.getStart(), messageFilterBeans.getSize());
         }
         return messageService.getAllMessages();
     }
