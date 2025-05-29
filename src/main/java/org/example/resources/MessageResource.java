@@ -2,12 +2,15 @@ package org.example.resources;
 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 import org.example.exeptions.MessageNotFoundException;
 import org.example.models.Message;
 import org.example.resources.beans.MessageFilterBeans;
 import org.example.services.MessageService;
 
 import java.util.List;
+
+import static jakarta.ws.rs.core.Response.Status.CREATED;
 
 @Path("messages")
 public class MessageResource {
@@ -64,8 +67,12 @@ public class MessageResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Message addMessage(Message message) {
-        return messageService.addMessage(message);
+    public Response addMessage(Message message) {
+        Message newMessage = messageService.addMessage(message);
+        return Response.status(CREATED)
+                .entity(newMessage)
+                .build(); // Return a response with status 201 Created and the new message in the body
+
     }
 
     @PUT
