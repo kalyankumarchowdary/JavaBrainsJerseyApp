@@ -10,7 +10,9 @@ URLS
 1. GET /messenger/webapi/myresource 
 2. GET /messenger/webapi/messages/text 
 3. GET /messenger/webapi/messages/json
-4. GET /messenger/webapi/messages/ 
+4. GET /messenger/webapi/messages/
+    GET /messenger/webapi/messages?year?=2025 (filter the records based on year) 
+    GET /messenger/webapi/messages?start=2&size=2 (filter the records based on starting point and size of the records to fetch)
 5. GET /messenger/webapi/messages/{messageId} (messageId is a path parameter, e.g., 1,2)
 6. POST /messenger/webapi/messages/ (message is a JSON object in the request body)
 7. PUT /messenger/webapi/messages/{messageId} (messageId is a path parameter, e.g., 1,2) (message is a JSON object in the request body)

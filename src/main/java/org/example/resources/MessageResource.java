@@ -15,7 +15,15 @@ public class MessageResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Message> getAllMessages() {
+    public List<Message> getAllMessages(@QueryParam("year") int year,
+                                        @QueryParam("start") int start,
+                                        @QueryParam("size") int size) {
+        if (year > 0) {
+            return messageService.getAllMessagesForYear(year);
+        }
+        if (start >= 0 && size > 0) {
+            return messageService.getAllMessagesPaginated(start, size);
+        }
         return messageService.getAllMessages();
     }
 

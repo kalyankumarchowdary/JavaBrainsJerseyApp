@@ -4,6 +4,7 @@ import org.example.database.stubs.DatabaseStubs;
 import org.example.exeptions.MessageNotFoundException;
 import org.example.models.Message;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +26,29 @@ public class MessageService {
         // This method would typically interact with a DAO or repository to fetch messages.
         // For simplicity, we use a stubbed database.
         return new ArrayList<Message>(messages.values());
+    }
+
+    public List<Message> getAllMessagesForYear(int year) {
+        // This method retrieves all messages for a specific year.
+        // In a real application, you would filter messages based on the year.
+        List<Message> messagesForYear = new ArrayList<>();
+        Calendar cal = Calendar.getInstance();
+        for (Message message : messages.values()) {
+            cal.setTime(message.getCreated());
+            if (cal.get(Calendar.YEAR) == year) {
+                messagesForYear.add(message);
+            }
+        }
+        return messagesForYear;
+    }
+
+    public List<Message> getAllMessagesPaginated(int start, int size) {
+        // This method retrieves a paginated list of messages.
+        List<Message> messageList = new ArrayList<>(messages.values());
+        if (start + size > messageList.size()) { // Check if the requested size exceeds the available messages
+            return messageList.subList(start, messageList.size()); // if the requested size exceeds the available messages, return from start to the end of the list
+        }
+        return messageList.subList(start, start + size); // return the sublist from start to start + size
     }
 
     public Message getMessageById(long id) {
