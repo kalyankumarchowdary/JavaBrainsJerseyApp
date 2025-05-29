@@ -1,7 +1,7 @@
 package org.example.services;
 
 import org.example.database.stubs.DatabaseStubs;
-import org.example.exeptions.MessageNotFoundException;
+import org.example.exceptions.MessageNotFoundException;
 import org.example.models.Message;
 import java.util.ArrayList;
 import java.util.Calendar;

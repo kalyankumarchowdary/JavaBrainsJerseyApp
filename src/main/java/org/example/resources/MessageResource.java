@@ -3,7 +3,7 @@ package org.example.resources;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.example.exeptions.MessageNotFoundException;
+import org.example.exceptions.MessageNotFoundException;
 import org.example.models.Message;
 import org.example.resources.beans.MessageFilterBeans;
 import org.example.services.MessageService;
