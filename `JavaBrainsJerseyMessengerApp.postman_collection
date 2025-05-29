@@ -1,0 +1,382 @@
+{
+	"info": {
+		"_postman_id": "77bd41cb-8177-42a9-9a61-942542fe4769",
+		"name": "`JavaBrains",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19795851",
+		"_collection_link": "https://interstellar-shadow-421173.postman.co/workspace/MyWorkspace~c3278959-4ff5-4df7-9d3a-1091981a5817/collection/19795851-77bd41cb-8177-42a9-9a61-942542fe4769?action=share&source=collection_link&creator=19795851"
+	},
+	"item": [
+		{
+			"name": "Jersey Applications",
+			"item": [
+				{
+					"name": "Messenger",
+					"item": [
+						{
+							"name": "Messenger app url",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/messenger",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"messenger"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get myresource",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/messenger/webapi/myresource",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"messenger",
+										"webapi",
+										"myresource"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get messages in text format",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/messenger/webapi/messages/text",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"messenger",
+										"webapi",
+										"messages",
+										"text"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get messages in json format",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/messenger/webapi/messages/json",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"messenger",
+										"webapi",
+										"messages",
+										"json"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all  messages",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/messenger/webapi/messages",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"messenger",
+										"webapi",
+										"messages"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all  messages filtering with year",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/messenger/webapi/messages?year=2025",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"messenger",
+										"webapi",
+										"messages"
+									],
+									"query": [
+										{
+											"key": "year",
+											"value": "2025"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all  messages filtering with size of records with starting point",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/messenger/webapi/messages?start=2&size=2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"messenger",
+										"webapi",
+										"messages"
+									],
+									"query": [
+										{
+											"key": "start",
+											"value": "2"
+										},
+										{
+											"key": "size",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get message with user input from url",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/messenger/webapi/messages/hello;name=suresh",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"messenger",
+										"webapi",
+										"messages",
+										"hello;name=suresh"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get messages by Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/messenger/webapi/messages/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"messenger",
+										"webapi",
+										"messages",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a message",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"author\": \"kalyan\",\r\n    \"created\": \"2025-05-28T18:05:04.641Z[UTC]\",\r\n    \"id\": 1003,\r\n    \"message\": \"First Post Message!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/messenger/webapi/messages",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"messenger",
+										"webapi",
+										"messages"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update messages by Id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"author\": \"kalyan\",\r\n    \"created\": \"2025-05-28T18:05:04.641Z[UTC]\",\r\n    \"id\": 3,\r\n    \"message\": \"Fourth Post Message!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/messenger/webapi/messages/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"messenger",
+										"webapi",
+										"messages",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Patch a message",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"message\": \"Fourth Post Message!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/messenger/webapi/messages/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"messenger",
+										"webapi",
+										"messages",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete messages by Id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/messenger/webapi/messages/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"messenger",
+										"webapi",
+										"messages",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete all messages",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"message\": \"Fourth Post Message!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/messenger/webapi/messages/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"messenger",
+										"webapi",
+										"messages",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
