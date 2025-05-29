@@ -20,6 +20,9 @@ URLS
     e.g., {"message":"updated message"} 
 9. DELETE /messenger/webapi/messages/ (Deleted all messages)
 10. DELETE /messenger/webapi/messages/{messageId} (messageId is a path parameter, e.g., 1,2)
+11. GET /messenger/webapi/messages/hello;name=yourName (URL with Matrix param , name value can be any string)
+    e.g., /messenger/webapi/messages/hello;name=John
+    e.g., /messenger/webapi/messages/hello;name=John;age=30 (multiple matrix params) (possible but not applied in code)
 
 TOMCAT SETUP
 

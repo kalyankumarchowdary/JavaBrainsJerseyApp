@@ -28,6 +28,13 @@ public class MessageResource {
     }
 
     @GET
+    @Path("/hello")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getHelloMessageWithYourName(@MatrixParam("name") String name) {
+        return "Hello , I am " + name + "! Welcome to the Message Service.";
+    }
+
+    @GET
     @Path("/text")
     @Produces(MediaType.TEXT_PLAIN)
     public String getTextMessage() {
